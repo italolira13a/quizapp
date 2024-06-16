@@ -9,6 +9,7 @@
 :root{
     --bg-color:#f4f6fa;
     --purple: #a729f5;
+    --purple-hover: rgba(167, 41, 245, 0.7);
     --primary-text-color: #313e51;
     --secondary-text-coor:#626c7f;
     --button-bg: #fff;
@@ -41,6 +42,18 @@ body{
     background-size: cover;
 }
 
+cursor: pointer;{
+
+}
+
+
+.alternativas label:hover{
+    & span {
+        border-radius: 24px;
+
+        background: var(--bg-acessibilidade);
+        color: var(--purple);
+    }
 header{
     display: flex;
     justify-content: space-between;
@@ -69,6 +82,12 @@ header{
     font-size: 18px;
     font-weight: 500;
     color: var(--primary-text-color);
+    transition: background 0.3s;
+}
+
+.alternativas button:hover{
+    background: var(--purple-hover);
+    cursor: pointer;
 }
 
 .tema{
