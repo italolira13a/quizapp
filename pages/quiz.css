@@ -113,7 +113,7 @@ header{
     padding: 4px;
 }
 
-.tema button div{
+.tema button div {
     background: var(--white);
     width: 12px;
     height: 12px;
