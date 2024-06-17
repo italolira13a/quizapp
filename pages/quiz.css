@@ -18,8 +18,8 @@
     --shadow: 0px 16px 48px 8px rgba(143, 160, 193, 0.14);
     --bg-html: #fff1e9;
     --bg-css: #e0fdef;
-    --bg-javascript: #ebf0ff;
-    --bg-acessibilidade: #f6e7ff;
+    --bg-javascript: #dbe4fa;
+    --bg-acessibilidade: #f2deff;
     --white: #fff;
     --green: #26d782;
     --red: #ee5454;
@@ -45,18 +45,6 @@ body{
     background-size: cover;
 }
 
-cursor: pointer;{
-
-}
-
-
-.alternativas label:hover{
-    & span {
-        border-radius: 24px;
-
-        background: var(--bg-acessibilidade);
-        color: var(--purple);
-    }
 header{
     display: flex;
     justify-content: space-between;
@@ -70,12 +58,28 @@ header{
 }
 
 .assunto_icone{
-    background: var(--bg-acessibilidade);
     width: 40px;
     height: 40px;
     padding: 5px;
     border-radius: 5px;
 }
+
+.assunto_icone.html{
+    background: var(--bg-html);
+}
+
+.assunto_icone.css{
+    background: var(--bg-css);
+}
+
+.assunto_icone.javascript{
+    background: var(--bg-javascript);
+}
+
+.assunto_icone.acessibilidade{
+    background: var(--bg-acessibilidade);
+}
+
 
 .assunto_icone img{
     width: 100%;
@@ -85,12 +89,6 @@ header{
     font-size: 18px;
     font-weight: 500;
     color: var(--primary-text-color);
-    transition: background 0.3s;
-}
-
-.alternativas button:hover{
-    background: var(--purple-hover);
-    cursor: pointer;
 }
 
 .tema{
@@ -107,13 +105,15 @@ header{
 .tema button{
     height: 20px;
     width: 32px;
-    background: var(--bg-span);
+    background: var(--purple);
     border: 0;
     border-radius: 999px;
     padding: 4px;
+    display: flex;
+    cursor: pointer;
 }
 
-.tema button div {
+.tema button div{
     background: var(--white);
     width: 12px;
     height: 12px;
@@ -131,7 +131,7 @@ main{
 .pergunta p{
     font-style: italic;
     font-size: 14px;
-    color: var(--color-span);
+    color: var(--secondary-text-coor);
     margin-bottom: 12px;
 }
 
@@ -152,7 +152,6 @@ main{
 
 .barra_progreso div{
     height: 100%;
-    width: 50%;
     background: var(--purple);
     border-radius: 999px;
 }
@@ -161,6 +160,7 @@ main{
     display: flex;
     flex-direction: column;
     gap: 12px;
+    margin-bottom: 12px;
 }
 
 .alternativas label{
@@ -168,14 +168,19 @@ main{
     background: var(--button-bg);
     padding: 12px;
     font-size: 18px;
-}
-{
-font-weight: 500;
-border-radius: 12px;
-box-shadow: var(--shadow);
-color: var(--primary-text-color);
+    font-weight: 500;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    color: var(--primary-text-color);
+    cursor: pointer;
 }
 
+.alternativas label:hover{
+    & span {
+        background: var(--bg-acessibilidade);
+        color: var(--purple);
+    }
+}
 
 .alternativas label:has(input:checked){
     outline: 3px solid var(--purple);
@@ -184,12 +189,32 @@ color: var(--primary-text-color);
         background: var(--purple);
         color: var(--white);
     }
-
 }
+
+.alternativas label#correta{
+    outline: 3px solid var(--green);
+
+    & span{
+        background: var(--green);
+        color: var(--white);
+    }
+}
+
+.alternativas label#errada{
+    outline: 3px solid var(--red);
+
+    & span{
+        background: var(--red);
+        color: var(--white);
+    }
+}
+
+
 .alternativas input{
     display: none;
 }
-{.alternativas div{
+
+.alternativas div{
     display: flex;
     align-items: center;
     gap: 16px;
@@ -199,9 +224,9 @@ color: var(--primary-text-color);
     display: block;
     width: 40px;
     height: 40px;
-    background: var(--bg-color);
+    background: var(--bg-span);
     border-radius: 5px;
-    color: var(--secondary-text-coor);
+    color: var(--color-span);
 
     display: flex;
     align-items: center;
@@ -219,9 +244,21 @@ color: var(--primary-text-color);
 
     font-size: 18px;
     font-weight: 500;
+    transition: background 0.3s;
+}
+
+.alternativas button:hover{
+    background: var(--purple-hover);
+    cursor: pointer;
 }
 
 @media(min-width: 1100px) {
+    body{
+        background: var(--bg-desktop) var(--bg-color);
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    
     header {
         margin-block: 81px;
         max-width: 1160px;
@@ -233,10 +270,11 @@ color: var(--primary-text-color);
         height: 56px;
         padding: 8px;
     }
-
+    
     .assunto h1 {
         font-size: 28px;
     }
+
     .tema {
         gap: 16px;
     }
@@ -250,10 +288,15 @@ color: var(--primary-text-color);
         height: 28px;
     }
 
+    .tema button div{
+        width: 20px;
+        height: 20px;
+    }
+
     main {
         max-width: 1160px;
         margin-inline: auto;
-
+        
         display: flex;
         gap: 130px;
     }
@@ -287,6 +330,7 @@ color: var(--primary-text-color);
     .alternativas label{
         font-size: 22px;
         padding: 18px 20px;
+        border-radius: 24px;
     }
 
     .alternativas div{
@@ -302,25 +346,4 @@ color: var(--primary-text-color);
     .alternativas button{
         font-size: 22px;
     }
-
-    .tema button div{
-        width: 20px;
-        height: 20px;
-    }
-    .alternativas label#correta{
-        outline: 3px solid var(--green);
-    
-        & span{
-            background: var(--green);
-            color: var(--white);
-        }
-    }
-    
-    .alternativas label#errada{
-        outline: 3px solid var(--red);
-    
-        & span{
-            background: var(--red);
-            color: var(--white);
-        }
-    }
+}
