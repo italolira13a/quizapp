@@ -207,9 +207,8 @@ main{
     }
 
     .assuntos button {
-        font-size: 20px;
-        padding: 20px;
-        gap: 32px;
+        font-size: 28px;
+        padding: 41px;
     }
 
     .assuntos button div {
